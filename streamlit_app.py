@@ -13,7 +13,7 @@ st.write(
     """
 )
 
-#import streamlit as st
+# import streamlit as st
 
 option = st.selectbox(
     "What is your favorite fruits?",
@@ -24,8 +24,8 @@ st.write("your favorite fruits- is:", option)
 
 session = get_active_session()
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-#st.dataframe(data=my_dataframe, use_container_width=True);
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'));
+
 ingredients_list = st.multiselect(
     'choose up to 5 ingredients:' 
     , my_dataframe
