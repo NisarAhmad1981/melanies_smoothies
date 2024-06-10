@@ -23,9 +23,8 @@ option = st.selectbox(
 st.write("your favorite fruits- is:", option)
 
 
-session = get_active_session()
 def main(session: snowpark.Session):
-
+session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'));
 
 ingredients_list = st.multiselect(
