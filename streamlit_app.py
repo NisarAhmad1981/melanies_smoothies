@@ -25,7 +25,7 @@ st.write('The Name on Your Smoothie will be', name_on_order)
     #"What is your favorite fruits?",
     #("Banana", "StrawBerries", "Peaces"))
 
-st.write("your favorite fruits- is:", option)
+st.write("your favorite fruits- is:")
 
 st.stop()
 cns=st.connection("snowflake")
