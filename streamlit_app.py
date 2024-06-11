@@ -3,9 +3,6 @@ import streamlit as st
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
-
-
-
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie:cup_with_straw:")
 st.write(
@@ -31,12 +28,15 @@ st.write('The Name on Your Smoothie will be', name_on_order)
 #st.write("your favorite fruits- is:", option)
 
 
+cns=st.connection("snowflake")
+#session = get_active_session()
+session = cns.session()
 
-session = get_active_session()
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'));
 
 ingredients_list = st.multiselect('choose up to 5 ingredients:', my_dataframe)
-
+st.stop()
 if ingredients_list:
     #st.write(ingredients_list) 
     #st.text(ingredients_list)
