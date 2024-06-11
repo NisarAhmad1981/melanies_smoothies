@@ -27,14 +27,14 @@ st.write('The Name on Your Smoothie will be', name_on_order)
 
 st.write("your favorite fruits- is:")
 
-st.stop()
+
 cns=st.connection("snowflake")
 #session = get_active_session()
 session = cns.session()
 
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'));
-
+st.stop()
 ingredients_list = st.multiselect('choose up to 5 ingredients:', my_dataframe)
 
 if ingredients_list:
