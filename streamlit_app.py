@@ -36,7 +36,7 @@ session = cns.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'));
 
 ingredients_list = st.multiselect('choose up to 5 ingredients:', my_dataframe)
-st.stop()
+# st.stop()
 if ingredients_list:
     #st.write(ingredients_list) 
     #st.text(ingredients_list)
