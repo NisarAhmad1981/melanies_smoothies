@@ -34,7 +34,7 @@ session = cns.session()
 
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'));
-st.stop()
+
 ingredients_list = st.multiselect('choose up to 5 ingredients:', my_dataframe)
 
 if ingredients_list:
@@ -44,7 +44,7 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ''
     #st.write(ingredients_string)
-
+st.stop()
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string + """','""" + name_on_order + """')"""
 
