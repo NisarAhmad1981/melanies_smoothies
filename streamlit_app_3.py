@@ -22,8 +22,13 @@ st.write('The Name on Your Smoothie will be', name_on_order)
 
 #session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
-st.dataframe(data=my_dataframe, use_container_width=True)
+#st.dataframe(data=my_dataframe, use_container_width=True)
+#st.stop()
+# convert snowspak dataframe to panda dataframe so we can use LOC function
+pd_df=my_dataframe.to_panda()
+st.dataframe(pd_df)
 st.stop()
+
 ingredients_list = st.multiselect('Choose upto 5 Ingredients:',my_dataframe,max_selections=5)
 
 if ingredients_list:
